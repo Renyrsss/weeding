@@ -1,0 +1,239 @@
+@import "./null.css";
+
+@font-face {
+    font-family: "MainFonts";
+    src: url("../fonts/WonderGardene2.woff") format("woff");
+}
+@font-face {
+    font-family: "MainFonts2";
+    src: url("../fonts/CormorantInfant-Regular.woff") format("woff");
+}
+@font-face {
+    font-family: "MainFonts2-Light";
+    src: url("../fonts/CormorantInfant-Light.woff") format("woff");
+}
+
+.header {
+    min-height: 100vh;
+}
+.headerSide {
+    min-height: 50vh;
+    background: url("../img/upl7432.png") center center / 380px auto no-repeat;
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: scale(0.7);
+    animation: popupFadeIn 1s ease-out forwards;
+}
+
+@keyframes popupFadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.headerSide p {
+    font-family: "MainFonts";
+    font-style: italic;
+    font-size: 50px;
+    color: rgb(59, 59, 59);
+}
+
+.headerText {
+    font-family: "MainFonts2";
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    /* align-items: center; */
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeTextUp 1s ease-out forwards;
+    animation-delay: 0.5s; /* задержка, чтобы не вместе с фоном */
+}
+
+@keyframes fadeTextUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.headerSubTextDate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.headerTextMore {
+    text-align: center;
+    margin: 0 30px;
+    font-family: "MainFonts2-Light";
+
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+    animation: fadeBlurUp 1.2s ease-out forwards;
+    animation-delay: 1s; /* позже основного текста */
+}
+
+@keyframes fadeBlurUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.subText {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+    animation: fadeBlurUp 1.2s ease-out forwards;
+    animation-delay: 1.5s; /* чуть позже остальных */
+}
+@keyframes fadeBlurUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.text-center {
+    font-family: "MainFonts";
+    font-size: 30px;
+    text-align: center;
+    color: rgb(59, 59, 59);
+    margin-bottom: 10px;
+}
+
+.borders {
+}
+
+#countdown {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+#countdown {
+    font-family: "MainFonts2-Light";
+    font-size: 20px;
+    text-align: center;
+}
+
+.second-main {
+    text-align: center;
+    font-size: 35px;
+}
+
+/* ------- */
+
+.second-Bg {
+    background: url("../img/upl7437.png") 0 0 / 500px 500px repeat;
+    padding: 20px 40px;
+    text-align: center;
+    font-family: "MainFonts2-Light";
+}
+
+.second-Bg-whiteBox {
+    border-radius: 10px;
+    position: relative;
+    /* padding-right: 20px; */
+}
+.content2 {
+    position: relative;
+    z-index: 1000;
+    padding: 20px;
+}
+.whiteBox {
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    opacity: 70%;
+}
+.date {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ----- */
+.calendar-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.calendar-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333333;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+.FM {
+    font-size: 35px;
+}
+.day-name {
+    font-weight: bold;
+    color: #9e9e9e;
+    text-align: center;
+}
+
+.day {
+    background: #fff5f7;
+    color: #857d92;
+    text-align: center;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.day.wedding-day {
+    background: #b571ca;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(182, 126, 255, 0.5);
+    position: relative;
+}
+
+.day.wedding-day::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 1rem;
+}
+
+.day.empty {
+    visibility: hidden;
+}
+.map {
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+.famFM {
+    font-size: 23px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
