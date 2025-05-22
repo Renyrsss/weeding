@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let token = "";
     // script.js
     function updateCountdown() {
         const weddingDate = new Date("2025-07-05T00:00:00");
@@ -45,4 +46,38 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("touchstart", playMusic, { once: true });
     window.addEventListener("mousedown", playMusic, { once: true });
     setInterval(updateCountdown, 1000);
+
+    const TOKEN = "6515245927:AAExFk8USVwQ2IVcwtqszfutM-hqgbfp0Dg";
+    const CHAT_ID = "-4962856658"; // ← сюда вставь свой Telegram chat ID
+    const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+    document
+        .getElementById("weddingForm")
+        .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.querySelector(".userName").value;
+            const attendance = document.querySelector(
+                'input[name="attendance"]:checked'
+            )?.value;
+
+            let message = `<b>🎉 Жауап тойға шақыруға:</b>\n`;
+            message += `<b>👤 Аты-жөні:</b> ${name}\n`;
+            message += `<b>✅ Жауабы:</b> ${attendance}`;
+
+            axios
+                .post(URI_API, {
+                    chat_id: CHAT_ID,
+                    parse_mode: "html",
+                    text: message,
+                })
+                .then((res) => {
+                    alert("Рахмет! Жауабыңыз қабылданды.");
+                    document.getElementById("weddingForm").reset();
+                })
+                .catch((err) => {
+                    console.error("Ошибка отправки в Telegram:", err);
+                    alert("Қате пайда болды. Қайтадан көріңіз.");
+                });
+        });
 });

@@ -132,6 +132,43 @@
                             <p>Исатай Батыр - 58</p>
                             <p>Aqtilek - мейрамханасы</p>
                         </div>
+
+                        <form id="weddingForm" class="form">
+                            <p class="adress__name">Сіз тойға қатысасыз ба?</p>
+                            <span
+                                >*Сіздің және қонақ ретінде қатысатын
+                                жақындарыңыздың аты-жөнін енгізіңіз:</span
+                            >
+                            <input
+                                type="text"
+                                placeholder="Толық аты-жөні"
+                                class="userName"
+                                name="name"
+                                required
+                            />
+                            <div>
+                                <input
+                                    type="radio"
+                                    id="agree"
+                                    value="Келемін"
+                                    name="attendance"
+                                    required
+                                />
+                                <label for="agree">Келемін</label><br />
+                                <input
+                                    type="radio"
+                                    id="notAgree"
+                                    value="Келе алмаймын"
+                                    name="attendance"
+                                />
+                                <label for="notAgree">Келе алмаймын</label>
+                            </div>
+                            <input
+                                type="submit"
+                                value="Растау"
+                                class="submit"
+                            />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -180,6 +217,7 @@
                 >
             </div>
         </div>
+        <script src="./js/axios.min.js"></script>
         <script src="./js/app.js"></script>
     </body>
 </html>
